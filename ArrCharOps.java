@@ -3,14 +3,15 @@ public class ArrCharOps {
         String str = "clearly";
         char[] arr1 = {'c','l','e','a','r','l','y'};
         char[] arr2 = {'U','n','d','e','r','s','t','o','o','d'};
+
         System.out.println(str);
         println(arr1);
         System.out.println(charAt(arr1,2));
         System.out.println(indexOf(arr1,'l'));
         System.out.println(indexOf(arr1,'l',3));
         System.out.println(lastIndexOf(arr1, 'l'));
-        System.out.println(concat(arr1, arr2));
-        System.out.println(subArray(arr2, 2, 9));
+        println(concat(arr1, arr2));              // ⬅⬅ חשוב
+        println(subArray(arr2, 2, 9));            // ⬅⬅ חשוב
         System.out.println(compareTo("abcd", "abcd"));
         System.out.println(compareTo("abc", "abcd"));
         System.out.println(compareTo("abw", "abcd"));
@@ -98,25 +99,24 @@ public class ArrCharOps {
         return hash;
     }
 
-     public static int compareTo(String str1, String str2) {
-    if (str1 == null || str2 == null || str1.length() == 0 || str2.length() == 0) {
-        return -2;
+    public static int compareTo(String str1, String str2) {
+        if (str1 == null || str2 == null || str1.length() == 0 || str2.length() == 0) {
+            return -2;
+        }
+
+        int len1 = str1.length();
+        int len2 = str2.length();
+        int min = (len1 < len2) ? len1 : len2;
+
+        for (int i = 0; i < min; i++) {
+            char c1 = str1.charAt(i);
+            char c2 = str2.charAt(i);
+            if (c1 < c2) return -1;
+            if (c1 > c2) return 1;
+        }
+
+        if (len1 < len2) return -1;
+        if (len1 > len2) return 1;
+        return 0;
     }
-
-    int len1 = str1.length();
-    int len2 = str2.length();
-    int min = (len1 < len2) ? len1 : len2;
-
-    for (int i = 0; i < min; i++) {
-        char c1 = str1.charAt(i);
-        char c2 = str2.charAt(i);
-        if (c1 < c2) return -1;
-        if (c1 > c2) return 1;
-    }
-
-    if (len1 < len2) return -1;
-    if (len1 > len2) return 1;
-    return 0;
-}
-
 }
