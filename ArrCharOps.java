@@ -40,6 +40,7 @@ public class ArrCharOps {
             if (arr1[i] != arr2[i]) return false;
         }
         return true;
+        
     }
 
     public static int indexOf(char[] arr, char ch) {
